@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Белый лев - форма</title>
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+  <style>
+    .form__rating {
+      display: flex;
+      align-items: center;
+      margin-top: 30px;
+    }
+
+    .rating {
+      display: inline-flex;
+      flex-direction: row-reverse;
+      transform: translateY(1px);
+      margin-left: 15px;
+    }
+
+    .rating__item {
+      width: 17px;
+      height: 17px;
+      background-color: #c3c3c3;
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+      -webkit-mask-position: center;
+      mask-position: center;
+      -webkit-mask-image: url('img/icons/star.png');
+      mask-image: url('img/icons/star.png');
+      cursor: pointer;
+      -webkit-transition: all .2s;
+      -o-transition: all .2s;
+      transition: all .2s;
+      margin-right: 5px;
+    }
+
+    .rating__item:hover,
+    .rating__item:hover~.rating__item {
+      background-color: #A0A0A0;
+    }
+
+    .rating[data-total-value="1"] .rating__item:nth-child(n + 5),
+    .rating[data-total-value="2"] .rating__item:nth-child(n + 4),
+    .rating[data-total-value="3"] .rating__item:nth-child(n + 3),
+    .rating[data-total-value="4"] .rating__item:nth-child(n + 2),
+    .rating[data-total-value="5"] .rating__item:nth-child(n + 1) {
+      background-color: #f2a951;
+    }
+
+    .popupForm .form__info-mb {
+      margin-bottom: 15px;
+    }
+  </style>
+
+  <!-- new review popup -->
+  <div class="popup active" id="popupNewReview">
+    <div class="popup__overlay">
+      <div class="popup__body">
+        <div class="popup__close">
+        </div>
+        <div class="mobileMenu__header">
+          <a class="header__logo" href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="258" height="60"
+              viewBox="0 0 258 60">
+              <metadata>
+                <?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
+                <x:xmpmeta xmlns:x="adobe:ns:meta/"
+                  x:xmptk="Adobe XMP Core 5.6-c142 79.160924, 2017/07/13-01:06:39        ">
+                  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+                    <rdf:Description rdf:about="" />
+                  </rdf:RDF>
+                </x:xmpmeta>
+                <?xpacket end="w"?>
+              </metadata>
+              <image id="Логотип.svg"
+                xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQIAAAA8CAMAAAC6lkQLAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAC9FBMVEUAAAAJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AAAAAJTNQpAAAA+nRSTlMAIVuMss/j9fTlwZxmKDWR3eSNOAFQztVoC8PwfwwT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" />
+            </svg>
+          </a>
+          <div class="popup__close">
+          </div>
+        </div>
+        <div class="popup__title">
+          Написать отзыв
+        </div>
+        <div class="popup__subtitle">
+          Ваш отзыв поможет кому-то сделать выбор. <br> Спасибо, что делитесь опытом!
+        </div>
+        <form class="popupForm">
+          <div class="form__rating">
+            Оценка:
+            <div class="rating" data-total-value="0">
+              <div class="rating__item" data-item-value="5"></div>
+              <div class="rating__item" data-item-value="4"></div>
+              <div class="rating__item" data-item-value="3"></div>
+              <div class="rating__item" data-item-value="2"></div>
+              <div class="rating__item" data-item-value="1"></div>
+            </div>
+          </div>
+          <div class="form__control">
+            <div class="form__icon form__icon-name"></div>
+            <input class="req" type="text" id="name11" name="name11">
+            <label for="name11" class="label">Имя<span>*</span></label>
+          </div>
+          <div class="form__control">
+            <div class="form__icon form__icon-comment"></div>
+            <textarea type="text" id="comment" name="comment"></textarea>
+            <label for="comment" class="label">Ваш комментарий</label>
+            <div class="comment__clear">
+              Очистить
+            </div>
+          </div>
+          <div class="form__info form__info-mb">
+            <span>*</span>Заполняя данную форму, Вы соглашаетесь на обработку
+            <a class="link-green" href="#">персональных данных</a>
+          </div>
+          <button class="btn btn-pink popup__btn submit">
+            Отправить
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- success review popup -->
+  <div class="popup" id="popupSuccessReview">
+    <div class="popup__overlay">
+      <div class="popup__body popup__body-flex">
+        <div class="popup__close">
+        </div>
+        <div class="mobileMenu__header">
+          <a class="header__logo" href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="258" height="60"
+              viewBox="0 0 258 60">
+              <metadata>
+                <?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
+                <x:xmpmeta xmlns:x="adobe:ns:meta/"
+                  x:xmptk="Adobe XMP Core 5.6-c142 79.160924, 2017/07/13-01:06:39        ">
+                  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+                    <rdf:Description rdf:about="" />
+                  </rdf:RDF>
+                </x:xmpmeta>
+                <?xpacket end="w"?>
+              </metadata>
+              <image id="Логотип.svg"
+                xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQIAAAA8CAMAAAC6lkQLAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAC9FBMVEUAAAAJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AJX3AAAAAJTNQpAAAA+nRSTlMAIVuMss/j9fTlwZxmKDWR3eSNOAFQztVoC8PwfwwTpMmxoKi475h2h6r7628Fa+02BAZhPgk9idvTbK4iL+JcZwgNLUbC/H4C8a0Ht9iphg+PueZ1Hoi1lNQcxxCjrEA6FidD3HnacZruyvmWFLPgk4OQJOrZERilashWvgP9Umk3isBItFSdWTDe/h3hEvo8RdBggE9Btp8bi4RO+GU0ha+8MnA5oVq7cumVDpIZ56bRTMtLm8SimbCOgboXH31ffHN4VWMj1tLNU20gCj+rxi4zXYIq82RXnilY91GX8hp6d7/Fp+wxJdcmFUlivUdELDtCXm7o9sx71woDEQAAAAFiS0dEAIgFHUgAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQflAQ8SAwYyspifAAAMOUlEQVRo3uWbe3wUxR3AB1QCsugCSQUhKPK8AGIOgqBrUKghPBREeyKGN1VXG5FQFl8EeYNRnqmU+gAkyoGKaFUWeSjmqlWDj6PiCy1sq1Lt46ytXuev/n4z+5jd270k4HHV/j753M78Zn6/+c33ZmdmZy+EuKRJ01NOPa1ZDqXNW5zeUmpF/t/kjDNl6pbWbdpmO6iTKLl5P6F+cla79tkO7SRJq7NpkHTomJ/t6E6GdDoHO5tzbufzunTtRrv36Bk6rcCB0Kt3n2wHSHIz3UD782nfNhcUsnS431n94VI04MKBNoRBF2S1/+GLLu6rwPWS4vMGZ6aF3Et7NWt3mZMf0nMo1//0cotBybDSLCIoHU7piD5k5ChKr8hIA+FR9MohAXBG2wNh1JgsMrgKAmg29mr4vCYj/n8WuZaOCyjr58wI143PHoL215tBjM3QrFQ2gU6cNGmyeStMmTxVmHum9bIZTM8ig5E/L4YIbrixMCPem9yk3gzT/y2/KMfc1Ftn3DazYpJTPOuXNoPZWvYYEDJn6pQMeS69/Y4p5E5KL2K5u3LGhYl7Cero3At3Z39xzIzMHSpVUjoPk/fQK1MW4PktHAYLUoxbLnTJIqZc5FYutmsv8avtpBy5CHQt7VSFUxBeCvnUvdqyIMeCLEfdzNCd93aoogUdbhg7epq5yt23eDjr3f0rCOlPV04pTNkQrxK2iqu9hWvcW8m1TLnWs7+0a3f0q+2kHKkA3Ro7tdDWl16JtctSEFQHORZkUopu4F2o+lVznls5sC15oDVdR26mLX7tdr9eMCr2rp6NQxAYaUMR/IZ+nwgoHQaqoRWcB2y+Vt1C6YMExkQ397S3QrQ50wdBizW2POQgcJRnuyJ9eAaT40LwCE2DwNdxsRPGBku3bmN1dWRTX+ZqMugexUTVZoCBumqss8Q1H5QuFBGUTE1FUOMNiCEgPvIg6M2Z4XgQPLYyCMEC0N7aEMeoy2Op8DWYfpyQLdGt01kbs7ZRhuAJlYbdVk8uFhl0PhEET4G+y3Ej2P40DUIwDrQ7GoeAkImQfoaQZwnZSOlv859jBOhMQsY3m+8xK+sgMthwAgjOA/3zx4sg/AINRLATtHpjEQzDGYB5Dgn9OxUUz231NnCNiKDLCSDYBfoXjxfBE1hxtz8CdHxKYxHsgPQeuM7dIfZv5XZQ7fU2kHuOOBvs8yLYsXZt07wB2xuA4G5zEk6JdFRFRc+XXj6jKA2CJexGXe6PAOer/Y1DkNsUdkO0H6ReWeBaJfZY247LLq2urp5lZorEU7VaLwJT+naJFQoIKiz5nVP7OtDf4RepKc1HLApC8CpuX3blBiB4DbTt/BzvscMosnVLa2pqaltOx+S1c1E50oWADrd24kU1T9tDhqwXuvr7AAQggy5xENiyy6mtQjaWBgFOt2N8EYRfh+trQ0gAApyt3kjvuMxH14bP/G+K98GZo7fV2X4P1L5lp9u/7dR6NRABHX5JOgRsh3FG+kjpO2E/BHhi8PC7JABBOWrjjUcgH0TdlG6CSiIkP+BRKLdHpVWrnwfBH+rq3nvs4POHsGxNbhoE/TG7wi/SrWVl+y54fxSr38MHwTRq3kL+CCahVmsogpwOIFVc291swpI72Z4o6FjgA3NjQj/0IKgRb5b+JHg67AHqFsQvUnPWiiHmGakIyvC0YBMJRFBbn2NbUMdu7z4fvcK2GR+T8sMCgmWs1vlzAhh8Yo6DNf4IyAYs3J8GQVQYE/6R3oSZOSkIHoePZiuCEeAW9+LGIQDZjsdBZ5NHFg6idFsx79v5rGTtEvKAOVoL57ns2/FqhwIQEHzk+jQYQXkBqG9MG+ky86Z2I/gjaqeRQART0HHvRiNgE8xhciR3Nd0Zzt3P+sYfEVd3J+XrDpiVIubzQh8cIVoBZyA8r7sQ4LQyLhjBUVS/KsSSGukWzLT1IkB5ggQjeAmVTRqPwDDjbHoaTsEXYo6fUB/pe4A8NJYvF+XNN5mzzBXrlv7JfLCmwmwhItiMZbWBCJrgyv5nMZbUSJdi5ogPgoHtgxEwxy+kd+yL4DPIfA7XrWw3so819AUr6QVjatlEfpoq014zB4yExIAcZ85w1k0RwT7cn9C3ghAcm43aN9JG+gHONmeRVASVq0gggmPTXf1qOIK8EsicDolqthcqYovEX77E9Dmff0XIqs74XePdX1nLDpjm5wza4I/gquXLN/+13U42sT5jL4p5orz8N50VX57rH2ltXV2dtSiu9UHwomXmRbB3EXe8MMDxU0IQfUydVFYY3tvqronMM+4Majux+jcwRQkOiaZ0BHwqz/z91HtRZ729WFJmHaF1ciMQxG9rJEjr+4h/pILszE1FMKN9EIJ3TMfj63fMzLy6rsJbsu7U/gqGHKJH4fIVp2LeHSjDTLsxQQhe89sgOzJbOG8JiLRkwVyr4wKCf9hmXgT8AW72sXod+yPYcUC4SRIOAlyd8fXl1wVMtdmqUmoyeVgwE46Ubul60NxZ+iPYtlE8+XUiFbanV9/2HrE77iCY4Jh5EcyEbIcHD/g69kNQJeTV2/sTUUplB8F7VbQS9wj8Odp+2TbYNB0o2u3958eP1HQ82nvLZieOOZNSpO2XnvcwqDT3YHXf/Kv3/o0da+ZNtUflLCjdYKeELuejnfBOafWH1c8WBTj2xoBm+W0/eHNr9e7RL/X+5Ou5xCO9Wff4BqMLpMauLjd4l//NI+tkvVvrSn6kkv8tdo8vcK0KXCOo9dsdJ8PqaWV3ZzvUjMn7DgLzvN6Umz5iK85tVn71ibTyPy2llzsIhghv0YrNJXeXmT/8I/4B1njV2ew+5yB4ms8+pdvM/Ihsx5lJ+WaldbjJj6WZHJqgMEWepYhlO8yMykPftbSSnb61ulx1/caDzyYGW7dGr5Hff7sa+/MtOOm/afjiHXsj9Ab1l54ZaDaqh0J++oRqqPGTzYCU26nO2OFKL4HvMvFzm3gopPgWGFHjpBMQZDwe1nSu8iD41BukBD3Q40TSQeJxHQauYWg6Ey0qy6EEqxaDpEEMptV0iXAjnmdGknk1oM+KLsu6wn3zykSLyHI0zuqjHWa4C2YJn5EIIZ5iKAfB+FjjhEVlWK1puu0hWN6EQbD+EzeBHO/BoqyDQyoRXcXWJQqRyzI0pkI+TqN6kiIDiSb1kE7kJOsyVTU8SJTMPBolVKqYxkSTwVaVFeY7xN8VJtWQngQESQpuQxQyaoIYNAodU9EMHnEg7y6GVnUdzOOqrIfUEFEgHN2wWlOgfUWmUloEhbPxgHWPC8F+EoRAJqyrvBf8g7WCXdDUpF0ZK6kGxKxG7LyiyAICAxedBGXFhsoQGFaoOnYAiphLXcV+q1g9mkxGvcXMMZhHVRxRNKYwJ1ZrmAup9SAgMXxjPU8kIBcFIlD5F6rjF+gg0GIYkEL5LY3fugHVQ6oWjcq6nVdCcggRcOMQowkOZD2hRhgCXdUcBAZ7awIpXU5GNVVH0KphYEddxZBiCGScaiFhI2CtQc5gtmkFno5nkydLHAIlk0njEADupJKKAHqmSgKCiJrQHQRJGwHEqnAEMnEQRHC0cAQSNdQEtA4LRxyGlrsYrcAcILkR8NYUuBpSfQhIDa0qIq87CP6TWiX9jRCR2EZKU0PCjQDth2CcylHnxogQ3bkRIvg1oomsqgpHELFel2HPYgxoVGaUVB35sid92VOMLaA5Q5qghoWAt6ZQNUrqR7C3gB4hzu8PPvP5SbwclaQIjeA3Iknx1LmAS0g1lITBKksKjOoEhi2beZgriYggrkYTMKcliGzNJUylGHHeR02WJSWCHqIw1hNQA25/jCLmKlZ009ygejwhq5qFgLcGCJQGICAv0GPkFIvA3WGfGuY/80g6fupBCJQo+5ZkXhWL2ODmeQnnMwEBTtg4Y2IXTQQ46bFXnthHoiShXOeDCk1gvtf4uBGLdXTBzNE4mSAWgpiJIEIagmAmXU/2mwQePeBXQ1NA4jDv4VXDiIimWR/CfkeR4hqvzItYDZ7nRtaVGSdijg+zdiJmVcNRIdnleOEJ5tAp5obsU4sliB2O2Brx35GJMo+GyY2cQJdwcDWlfpg/WHn3fkLY/yRUHk37rzH1w/zBypwKQvA3d8UPZDuSrEl4L8k/TKuefzLbgWRVaui580/cyw9aNuVl/B/ksir/BQ7YnocX0uyUAAAAAElFTkSuQmCC" />
+            </svg>
+          </a>
+          <div class="popup__close">
+          </div>
+        </div>
+        <div class="popup__success__text">
+          <div class="popup__title">
+            Отправлено
+          </div>
+          <div class="popup__subtitle">
+            Спасибо за отзыв! Нам важно знать ваше мнение о наших услугах. Ваш отзыв успешно отправлен на обработку
+            нашему менеджеру
+          </div>
+          <button class="btn btn-pink popup__btn success__btn">
+            Ок
+          </button>
+        </div>
+        <div class="popup__success__image">
+          <img src="img/Лев (форма обратной связи).svg" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/jquery.js"></script>
+  <script src="js/libs.min.js"></script>
+  <script src="js/dyn-adapt.js"></script>
+  <script src="js/ymap.js"></script>
+  <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=1b778a0a-af9e-4647-95ba-85b650e89169"
+    crossorigin="anonymous" SameSite="none Secure"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+    $(function () {
+      const ratingItemsList = document.querySelectorAll('.rating__item');
+      const ratingItemsArray = Array.prototype.slice.call(ratingItemsList);
+
+      ratingItemsArray.forEach(item =>
+        item.addEventListener('click', () => {
+          const { itemValue } = item.dataset;
+          item.parentNode.dataset.totalValue = itemValue;
+        })
+      )
+    })
+  </script>
+</body>
+
+</html>

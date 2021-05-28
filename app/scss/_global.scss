@@ -1,0 +1,505 @@
+/*---------- mixins -----------*/
+@mixin flex_center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin flex_between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@mixin mask_options($width, $height, $color) {
+  width: $width;
+  height: $height;
+  background-color: $color;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+@mixin image_center {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+  vertical-align: top;
+}
+@mixin transition {
+  transition: all 0.1s linear;
+}
+/*---------- global -----------*/
+html {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  outline: none;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-size: inherit;
+  color: $darkBlue;
+}
+h1 {
+  font-size: 45px;
+  line-height: 54px;
+  font-weight: 700;
+}
+h2 {
+  font-size: 40px;
+  font-weight: 700;
+}
+h3 {
+  font-size: 25px;
+  font-weight: 700;
+}
+h4,
+h5,
+h6 {
+  font-size: 20px;
+  font-weight: 500;
+}
+body {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: normal;
+  min-width: 320px;
+  overflow-x: hidden;
+  position: relative;
+  font-size: 16px;
+  color: #2f2f2f;
+  background-color: #eef7fc;
+}
+.siteWrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  .siteContent {
+    flex-grow: 1;
+  }
+}
+.container {
+  max-width: 1617px;
+  padding: 0 25px;
+  margin: 0 auto;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: inherit;
+  transition: all 0.1s linear;
+}
+button {
+  cursor: pointer;
+  transition: all 0.1s linear;
+}
+.btn {
+  @include flex_center;
+  height: 50px;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  border-radius: 4px;
+  &-pink {
+    color: #fff;
+    background-color: $pink;
+    border: none;
+    &:hover {
+      background-color: #9c1869;
+    }
+  }
+  &-green {
+    color: #fff;
+    background-color: $green;
+    border: none;
+    &:hover {
+      background-color: #095f70;
+    }
+  }
+  &-pink--bordered {
+    color: $pink;
+    background-color: transparent;
+    border: 1px solid $pink;
+    &:hover {
+      color: #fff;
+      background-color: $pink;
+    }
+  }
+  &-green--bordered {
+    color: $green;
+    background-color: transparent;
+    border: 1px solid $green;
+    &:hover {
+      color: #fff;
+      background-color: $green;
+    }
+  }
+}
+input,
+textarea {
+  font-size: 18px;
+  &::-webkit-input-placeholder {
+    color: #003044;
+    font-weight: 300;
+  }
+  &::-moz-input-placeholder {
+    color: #003044;
+    font-weight: 300;
+  }
+  &:-ms-input-placeholder {
+    color: #003044;
+    font-weight: 300;
+  }
+  &:-moz-input-placeholder {
+    color: #003044;
+    font-weight: 300;
+  }
+}
+.form__control-search {
+  display: flex;
+  align-items: center;
+  border: 1px solid #6ba9b8;
+  border-radius: 3px;
+  padding: 4px;
+  input {
+    max-width: 100%;
+    padding: 5px 5px 5px 16px !important;
+    border: none !important;
+    color: #003044 !important;
+    &::-webkit-input-placeholder {
+      font-weight: 400;
+      color: rgba(#003044, 0.8) !important;
+    }
+    &::-moz-input-placeholder {
+      font-weight: 400;
+      color: rgba(#003044, 0.8) !important;
+    }
+    &:-ms-input-placeholder {
+      font-weight: 400;
+      color: rgba(#003044, 0.8) !important;
+    }
+    &:-moz-input-placeholder {
+      font-weight: 400;
+      color: rgba(#003044, 0.8) !important;
+    }
+  }
+}
+.link-pink {
+  color: $pink;
+  &:hover {
+    color: $green;
+  }
+}
+.link-green {
+  color: $green;
+  &:hover {
+    color: $pink;
+  }
+}
+.link-arrow {
+  font-weight: 500;
+  color: $pink;
+  span {
+    position: relative;
+    padding-right: 28px;
+    &:after {
+      content: '';
+      mask-image: url('../img/icons/Стрелка\ длинная.svg');
+      @include mask_options(18px, 7px, $pink);
+      position: absolute;
+      top: 7px;
+      right: 0;
+      @include transition;
+    }
+  }
+  &:hover {
+    color: $green;
+    span:after {
+      background-color: $green;
+    }
+  }
+}
+// slider things
+.slick-track{
+  min-width: 100%;
+}
+
+/*---------- age toggle -----------*/
+.ageToggle {
+  display: flex;
+  align-items: center;
+  &__text {
+    font-size: 18px;
+    font-weight: 500;
+    color: #5d5d5d;
+    @include transition;
+    &-green {
+      color: $green;
+    }
+  }
+  &__slider {
+    width: 80px;
+    height: 26px;
+    border-radius: 20px;
+    background: linear-gradient(to right, $green 0%, #88dae6 75%);
+    border: 1px solid $green;
+    box-shadow: inset 0 0 0 3px #fff;
+    cursor: pointer;
+    transition: all 0.2s linear;
+    margin: 0 10px;
+    &__icon {
+      width: 30px;
+      height: 30px;
+      background-image: url('../img/icons/Львенок\ \(активный\ индикатор\).svg');
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      transform: translateY(-3px);
+      transition: margin 0.3s ease-in;
+      &:hover {
+        animation: iconMove 0.3s ease-in;
+      }
+    }
+  }
+  @keyframes iconMove {
+    0% {
+      transform: translate(0, -3px);
+    }
+    50% {
+      transform: translate(5px, -3px);
+    }
+    100% {
+      transform: translate(0, -3px);
+    }
+  }
+  @keyframes iconMoveClicked {
+    0% {
+      transform: translate(0, -3px);
+    }
+    50% {
+      transform: translate(-5px, -3px);
+    }
+    100% {
+      transform: translate(0, -3px);
+    }
+  }
+  &.clicked {
+    .ageToggle__slider {
+      border-color: $pink;
+      background: linear-gradient(to left, $pink 0%, #ffb9d9 75%);
+      &__icon {
+        margin-left: 50px;
+        &:hover {
+          animation: iconMoveClicked 0.3s ease-in;
+        }
+      }
+    }
+    .ageToggle__text-green {
+      color: #5d5d5d;
+    }
+    .ageToggle__text-pink {
+      color: $pink;
+    }
+  }
+}
+
+/*---------- date -----------*/
+.date {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #898989;
+  &:before {
+    content: '';
+    display: inline-block;
+    @include mask_options(12px, 12px, $green);
+    mask-image: url('../img/icons/clock.png');
+    margin-right: 4px;
+  }
+}
+/*---------- rate stars -----------*/
+.rateWrap {
+  display: flex;
+}
+.rateStar {
+  @include mask_options(17px, 17px, #f2a951);
+  mask-image: url('../img/icons/star.png');
+  margin-right: 5px;
+}
+
+/*---------- breadcrumbs -----------*/
+.breadcrumbs {
+  a {
+    word-break: break-word;
+    white-space: pre-wrap;
+    display: inline-block;
+    color: $darkGrey;
+    padding: 0 13px 0 0;
+    margin-right: 6px;
+    position: relative;
+    &:after {
+      content: '';
+      position: absolute;
+      top: 8px;
+      right: 0;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background-color: $pink;
+    }
+    &:hover {
+      color: $green;
+    }
+  }
+  span {
+    word-break: break-word;
+    color: $pink;
+    font-weight: 500;
+  }
+}
+
+/*---------- pagination -----------*/
+.pagination__wrapper{
+  display: flex;
+  justify-content: center;
+  margin: 30px auto 0;
+}
+.pagination__moreBtn{
+  width: 300px;
+  margin-left: 24px;
+}
+.pagination {
+  @include flex_center;
+  &__flex {
+    @include flex_center;
+    width: auto;
+    background-color: #fff;
+    border-radius: 3px;
+    padding: 5px;
+  }
+  &__pages {
+    display: flex;
+    justify-content: center;
+    margin: 0 -5px;
+    a {
+      @include flex_center;
+      width: 40px;
+      height: 40px;
+      font-size: 18px;
+      color: $darkGrey;
+      border-radius: 3px;
+      border: 1px solid transparent;
+      margin: 0 5px;
+      &:hover {
+        border-color: $green;
+      }
+    }
+  }
+  &__arrow {
+    width: 40px;
+    height: 40px;
+    background-color: $green;
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.1s linear;
+    &:after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      content: '';
+      mask-image: url('../img/icons/Стрелка\ мини.svg');
+      @include mask_options(13px, 16px, #fff);
+      transform: translate(-50%, -50%);    
+    }
+    &:hover {
+      background-color: $pink;
+    }
+  }
+}
+.pagination--active {
+  color: #fff !important;
+  background-color: #b04687 !important;
+  border-color: #b04687 !important;
+}
+.pagination--non-active {
+  pointer-events: none;
+}
+.pagination__arrow-prev {
+  margin-right: 20px;
+  &:after {
+    transform: translate(-50%, -50%) rotate(180deg);
+  }
+}
+.pagination__arrow-next {
+  margin-left: 20px;
+}
+
+/*---------- sort -----------*/
+.sort{
+  display: flex;  
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 18px;
+  margin: 15px 0 0;
+  &__text{
+    color: $darkGrey;
+    margin-right: 7px;
+  }
+  &__current{
+    display: none;
+  }
+  &__row{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__item{
+    color: #5d5d5d;
+    padding: 0 13px 0 0;
+    margin-right: 7px;
+    position: relative;
+    cursor: pointer;
+    transition: color .1s linear;
+    span{
+      color: $green;
+    }
+    &:not(:last-of-type):after {
+      content: '';
+      position: absolute;
+      top: 8px;
+      right: 0;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background-color: $pink;
+    }
+    &:hover{
+      color: $green;
+    }
+    &.active{
+      color: $pink;
+      font-weight: 500;
+      span{
+        color: $pink;
+      }
+    }
+  }
+  &__mobile{
+    z-index: 5;
+    display: none;
+  }
+}
